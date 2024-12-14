@@ -110,10 +110,10 @@ int rankMatcher(Mat rnk)                    //Rang der Karte matchen
 	int qualities[13];
 	int minindex = 0;
 
-	string file[] = { "C:/Card_Imgs/Ranks/2.jpg","C:/Card_Imgs/Ranks/3.jpg" ,"C:/Card_Imgs/Ranks/4.jpg" , "C:/Card_Imgs/Ranks/5.jpg" ,
-		"C:/Card_Imgs/Ranks/6.jpg" , "C:/Card_Imgs/Ranks/7.jpg" , "C:/Card_Imgs/Ranks/8.jpg" ,
-		"C:/Card_Imgs/Ranks/9.jpg" , "C:/Card_Imgs/Ranks/10.jpg" , "C:/Card_Imgs/Ranks/jack.jpg" ,
-		"C:/Card_Imgs/Ranks/queen.jpg" , "C:/Card_Imgs/Ranks/king.jpg" , "C:/Card_Imgs/Ranks/ace.jpg" , };
+	string file[] = { "Card_Imgs/Ranks/2.jpg","Card_Imgs/Ranks/3.jpg" ,"Card_Imgs/Ranks/4.jpg" , "Card_Imgs/Ranks/5.jpg" ,
+		"Card_Imgs/Ranks/6.jpg" , "Card_Imgs/Ranks/7.jpg" , "Card_Imgs/Ranks/8.jpg" ,
+		"Card_Imgs/Ranks/9.jpg" , "Card_Imgs/Ranks/0.jpg" , "Card_Imgs/Ranks/jack.jpg" ,
+		"Card_Imgs/Ranks/queen.jpg" , "Card_Imgs/Ranks/king.jpg" , "Card_Imgs/Ranks/ace.jpg" , };
 
 	for (int i = 0; i < 13; i++)			//Zahlen 2-10 und B,D,K,A 9+4=13
 	{
@@ -224,7 +224,7 @@ int suitMatcher(Mat rnk)                    //Suit der Karte matchen
 	int qualities[4];			//nur 4 unterschiedliche suits
 	int minindex = 0;
 
-	string file[] = { "C:/Card_Imgs/Suits/clubs.jpg","C:/Card_Imgs/Suits/diamonds.jpg" , "C:/Card_Imgs/Suits/hearts.jpg" ,"C:/Card_Imgs/Suits/spades.jpg" };
+	string file[] = { "Card_Imgs/Suits/clubs.jpg","Card_Imgs/Suits/diamonds.jpg" , "Card_Imgs/Suits/hearts.jpg" ,"Card_Imgs/Suits/spades.jpg" };
 
 	for (int i = 0; i < 4; i++)			// clubs, diamonds, hearts, spades = 4
 	{
@@ -387,7 +387,7 @@ int main(int argc, char** argv)
 
 	bool showsteps = false; // set it to false to see only result; 
 	Mat src, src_copy, edges;
-	src = imread("C:/cards deck/6 spades.jpg");				//////////////Binarisierung mit Otsu-Methode, statt mit Canny-Filter///////////////
+	src = imread("karta.jpeg");				//////////////Binarisierung mit Otsu-Methode, statt mit Canny-Filter///////////////
 	if (src.empty())
 	{
 		src = Mat(400, 400, CV_8UC3, Scalar(127, 127, 127));

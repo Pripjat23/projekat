@@ -12,10 +12,10 @@ using namespace std;
 int IM_WIDTH = 1280;				//Werte auf eigene Spielkarten anpassen
 int IM_HEIGHT = 720;				//Verhältnis Breite/Höhe muss stimmen --> keine Verzerrung
 
-int CORNER_WIDTH = 27;
-int CORNER_HEIGHT = 75;
+int CORNER_WIDTH = 30;
+int CORNER_HEIGHT = 80;
 
-int RANK_WIDTH = 70;               //fixe Größen für Breite und Höhe der Zahl 70x125 Pixel
+int RANK_WIDTH = 70;               //фиксне величине за ширину и висину броја 70к125 пиксела
 int RANK_HEIGHT = 125;				//125/70 passt nicht für Dame etc.. RANK_HEIGHT auf 140 anpassen
 
 int SUIT_WIDTH = 70;               //fixe Größe für Breite und Höhe des Symbols 70x100 Pixel
@@ -352,11 +352,11 @@ void isolation(Mat islo)			//isolation of rank and ruits
 {
 	Rect rank, suit;
 	rank.x = 10; rank.y = 10;
-	rank.height = 150;			//passt nicht mehr für Bube,Dame,König etc. (130 ist zu niedrig)
-	rank.width = 92;			//passt für 10 nicht mehr (92)
+	rank.height = 170;			//passt nicht mehr für Bube,Dame,König etc. (130 ist zu niedrig)
+	rank.width = 97;			//passt für 10 nicht mehr (92)
 	suit.x = 10; suit.y = (rank.y + rank.height);
 	suit.height = 130;
-	suit.width = 92;
+	suit.width = 97;
 	Mat rnk, sut;
 
 	rnk = islo(rank);
@@ -385,7 +385,7 @@ void cardID(Mat Card)
 int main(int argc, char** argv)
 {
 
-	bool showsteps = true; // set it to false to see only result; 
+	bool showsteps = false; // set it to false to see only result; 
 	Mat src, src_copy, edges;
 	src = imread("karta.jpeg");				//////////////Binarisierung mit Otsu-Methode, statt mit Canny-Filter///////////////
 	if (src.empty())
@@ -397,19 +397,19 @@ int main(int argc, char** argv)
 	//resize(src, src, Size(IM_WIDTH, IM_HEIGHT));
 	src_copy = src.clone();
 
-	imshow("slika 1",src);
+	//imshow("slika 1",src);
 
 	cvtColor(src, edges, COLOR_BGR2GRAY);
-	imshow("slika2",edges);
+	//imshow("slika2",edges);
 	GaussianBlur(edges, edges, Size(5, 5), 1.5, 1.5);
 
 	erode(edges, edges, Mat());// these lines may need to be optimized 
 	dilate(edges, edges, Mat());
 	dilate(edges, edges, Mat());
 	erode(edges, edges, Mat());
-imshow("slika3",edges);
+	//imshow("slika3",edges);
 	Canny(edges, edges, 50, 150, 3); // canny parameters may need to be optimized 
-imshow("slika4",edges);
+	//imshow("slika4",edges);
 	////////////Binarisierung mit Otsu-Methode, statt mit Canny-Filter///////////////
 
 	cv::waitKey(1); // add this line
