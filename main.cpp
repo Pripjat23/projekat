@@ -407,6 +407,9 @@ int main(int argc, char** argv)
 	dilate(edges, edges, Mat());
 	dilate(edges, edges, Mat());
 	erode(edges, edges, Mat());
+
+	//erode(edges, edges, Size(5,5));
+	
 	//imshow("slika3",edges);
 	Canny(edges, edges, 50, 150, 3); // canny parameters may need to be optimized 
 	//imshow("slika4",edges);
